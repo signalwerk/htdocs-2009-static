@@ -1,4 +1,3 @@
-htdocs-2009
-===========
+# Website Libre Graphics Meeting 2009
 
-Static archive of LGM 2009 website
+Static copy of the 2009 website for the Libre Graphics Meeting (LGM)
