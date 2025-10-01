@@ -1,0 +1,27 @@
+RewriteEngine on
+
+# Redirect old PHP files with language parameters (made by ugly web scrape)
+# test:
+# https://libregraphicsmeeting.org/2009/index.php-lang=fr.html → https://libregraphicsmeeting.org/2009/index-fr.html
+# https://libregraphicsmeeting.org/2009/location.php-lang=fr.html → https://libregraphicsmeeting.org/2009/location-fr.html
+# https://libregraphicsmeeting.org/2009/location.php-lang=en.html → https://libregraphicsmeeting.org/2009/location.html
+# https://libregraphicsmeeting.org/2009/location.php.html → https://libregraphicsmeeting.org/2009/location.html
+RewriteRule ^(.+)\.php-lang=en\.html$ /$1.html [L,R=301]
+RewriteRule ^(.+)\.php\.html$ /$1.html [L,R=301]
+RewriteRule ^(.+)\.php-lang=fr\.html$ /$1-fr.html [L,R=301]
+
+# Redirect query string language parameters
+# test:
+# https://libregraphicsmeeting.org/2009/index.html?lang=fr → https://libregraphicsmeeting.org/2009/index-fr.html
+# https://libregraphicsmeeting.org/2009/location.html?lang=fr → https://libregraphicsmeeting.org/2009/location-fr.html
+# https://libregraphicsmeeting.org/2009/location.html?lang=en → https://libregraphicsmeeting.org/2009/location.html
+# https://libregraphicsmeeting.org/2009/location.html → https://libregraphicsmeeting.org/2009/location.html
+RewriteCond %{QUERY_STRING} ^lang=fr$
+RewriteRule ^(.+)\.html$ /$1-fr.html? [L,R=301]
+
+RewriteCond %{QUERY_STRING} ^lang=en$
+RewriteRule ^(.+)\.html$ /$1.html? [L,R=301]
+
+# Redirect old PHP files without language parameters
+RewriteCond %{THE_REQUEST} \ /(.+)\.php(\.html)?
+RewriteRule ^ /%1.html [L,R=301]
