@@ -30,12 +30,127 @@
                         <li ><a href="location.php">location</a></li>
                         <li ><a href="sponsor.php">sponsors</a></li>
                         <li ><a href="contact.php">contact</a></li>
-                                    <li class="language"><a href="signup.php?lang=fr">français</a></li>
+                                    <li class="language"><a href="?lang=fr">français</a></li>
                     </ul>
     </div>
     <div id="body">
         <div id="content">
-                    </div>
+            <p style="border:1px solid darkgray; margin-bottom:40px; padding:5px; background-color:#eee;">If you want to propose a talk, please add it to the <a href="http://create.freedesktop.org/wiki/Conference_2009/Submit_Talk">talk submission page</a> on the create wiki.</p>
+
+<form method="post" action="signup.php" name="form_signup">
+
+<p>Please, tell us if you're coming to the Libre Graphics Meeting 2009 in Montréal.</p>
+
+<p></p>
+
+<fieldset>
+    <span style="float:left;">
+        <label for="firstname" class="v">firstname</label>
+        <input type="text" name="firstname" style="" />
+    </span>
+    <label for="lastname" class="v">lastname</label>
+    <input type="text" name="lastname" />
+</fieldset>
+
+<fieldset>
+<label for="address" class="v">address</label><textarea name="address" cols=80 rows=2></textarea>
+</fieldset>
+
+<fieldset>
+    <span style="float:left;">
+        <label for="postalcode" class="v">postalcode</label>
+        <input type="text" name="postalcode" />
+    </span>
+    <label for="city" class="v">city</label>
+    <input type="text" name="city" />
+</fieldset>
+
+<fieldset>
+    <span style="float:left;">
+        <label for="country" class="v">country</label>
+        <input type="text" name="country" />
+    </span>
+    <label for="province" class="v">state/province</label>
+    <input type="text" name="province" />
+</fieldset>
+
+<fieldset>
+    <span style="float:left;">
+        <label for="project" class="v">organization/project</label>
+        <select name="project" style="width:180px;">
+            <option value="">---</option>
+                        <option value="scribus" >scribus</option>
+                        <option value="krita" >krita</option>
+                        <option value="inkscape" >inkscape</option>
+                        <option value="gimp" >gimp</option>
+                        <option value="blender" >blender</option>
+                        <option value="create" >create</option>
+                        <option value="fontmatrix" >fontmatrix</option>
+                        <option value="gegl" >gegl</option>
+                        <option value="hugin" >hugin</option>
+                        <option value="openclipart" >openclipart</option>
+                        <option value="openfont" >openfont</option>
+                        <option value="oyranos" >oyranos</option>
+                        <option value="rawstudio" >rawstudio</option>
+                        <option value="sk1" >sk1</option>
+                        <option value="swatchbooker" >swatchbooker</option>
+                        <option value="tango" >tango</option>
+                        <option value="digikam" >digikam</option>
+                    </select>
+    </span>
+    <label for="project" class="v">role</label>
+    <input type="text" name="project_role" /></p>
+    <img src="skin/info.png" alt="if you're not associated with one of the listed projects, please tell us in the comments your reasons to join the LGM" class="info" />
+</fieldset>
+
+<p><label for="email" class="v">email</label><input type="text" name="email" /></p>
+
+<p><label for="url" class="v">website/blog/...</label><input type="text" name="url" /></p>
+
+<p><label for="nickname" class="v">nickname</label><input type="text" name="nickname" /><img src="skin/info.png" alt="If you're better known with your 'nom de plume', please let us know your nickname and we will put it on your badge near your real name." class="info" /></p>
+
+<p><label class="v">I'll be attending on:</label>
+
+
+<input type="checkbox" name="day[6]" value="6" id="day_6" /><label for="day_6">Wednesday 6th May 2009</label>
+<input type="checkbox" name="day[7]" value="7" id="day_7" /><label for="day_7">Thursday 7th May 2009</label>
+<br /><input type="checkbox" name="day[8]" value="8" id="day_8" /><label for="day_8">Friday 8th May 2009</label>
+<input type="checkbox" name="day[9]" value="9" id="day_9" /><label for="day_9">Saturday 9th May 2009</label>
+<br />
+<p><input type="checkbox" name="supper" id="supper" /><label for="supper">I will participate to the LGM Supper on Thursday evening (CAD $20)</p>
+
+<p><label for="comments" class="v">comments</label><textarea name="comments" cols=80 rows=4></textarea></p>
+
+<p><input type="checkbox" name="show" id="show" /><label for="show">show in the participant list</label><img src="skin/info.png" alt="We wish to show a list of who is attending the LGM and ask your permission to do it; please have a look at the current list, to know wich information from your profile will be shown." class="info" /></p>
+
+<p><input type="checkbox" name="speaker" id="speaker" /><label for="speaker">i wish to have to give a speach / actively participate to LGM 2009</label><img src="skin/info.png" alt="If you wish to actively participate to the LGM, check this box and we will contact you to manage the details." class="info" /></p>
+
+<script>
+window.addEventListener('load',enable_popup_alt,false);
+</script>
+
+<p><input type="submit" disabled name="save" value="save" /></p>
+
+<p><em>The registrations are manually checked and it may take up to two days before you get a confirmation from us.</em></p>
+
+</form>
+<script>
+function check_email() {
+    alert('chila');
+    Aussage = "test@da.ch";
+    // Aussage = "ideale.ch";
+    Ergebnis = Aussage.match(/^.+@.{2,}\..{2,4}$/i);
+    if (Ergebnis != null)
+        alert(Ergebnis.length);
+} // check_email()
+
+
+// document.form_signup.email.addEventListener('blur',check_email,false);
+// alert(document.form_signup.email);
+// document.form_signup.email.onblur = check_email;
+// document.addEventListener('submit', check_email, false);
+</script>
+        </div>
     </div>
     <div id="bottom_navigation">
         <ul>
